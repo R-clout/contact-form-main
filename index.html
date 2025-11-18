@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./src/output.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <title>Frontend Mentor | Contact form</title>
+</head>
+
+<body class="font-karla bg-green200 py-10 h-[100vh] flex justify-center items-start relative">
+  <div class="bg-white p-5">
+    <h1 class="text-[2rem] font-semibold text-grey900">Contact Us</h1>
+    <form x-data="signupForm" @submit.prevent="submitForm">
+      <div class="lg:flex lg:gap-5">
+        <div class="flex flex-col gap-2 my-2">
+          <label class="text-grey900 text-[1rem]" for="first-name">First Name <span
+              class="text-green600">*</span></label>
+          <input id="first-name" name="first-name" type="text"
+            x-bind:class="errors.firstname ?  'border-red outline-red' :  'border-grey500 outline-green600'"
+            class="border rounded-sm h-9 p-2 text-green600" x-model="firstname" />
+          <template x-if="errors.firstname">
+            <p x-text="errors.firstname" class="text-red text-[0.9rem]"></p>
+          </template>
+        </div>
+        <div class="flex flex-col gap-2 my-2">
+          <label class="text-grey900 text-[1rem]" for="last-name">Last Name <span class="text-green600">*</span></label>
+          <input id="last-name" name="last-name" type="text"
+            :class="errors.lastname ? 'border-red outline-red' : 'border-grey500 outline-green600'"
+            class="border rounded-sm h-9 p-2 text-green600" x-model="lastname" />
+          <template x-if="errors.lastname">
+            <p class="text-red text-[0.9rem]" x-text="errors.lastname"></p>
+          </template>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 my-2">
+        <label class="text-grey900 text-[1rem]" for="email">Email Address <span class="text-green600">*</span></label>
+        <input id="email" name="email" type="email"
+          :class="errors.email ? 'border-red outline-red' : 'border-grey500 outline-green600'"
+          class="border rounded-sm h-9 p-2 text-green600" x-model="email" />
+        <template x-if="errors.email">
+          <p class="text-red text-[0.9rem]" x-text="errors.email"></p>
+        </template>
+      </div>
+
+      <div class="my-4">
+        <p class="text-grey900 my-2">Query Type <span class="text-green600">*</span></p>
+        <div class="lg:grid lg:grid-cols-2 lg:gap-4">
+          <div class="border border-grey500 p-3 rounded-sm gap-3 flex items-center">
+            <input type="radio" name="query-type" value="general-enquiry" class="accent-green600" x-model="querytype" />
+            <label>General Enquiry</label>
+          </div>
+          <div class="border border-grey500 p-3 rounded-sm flex gap-3 peer-checked:bg-green600 my-2">
+            <input type="radio" name="query-type" value="support-request" class="accent-green600 "
+              x-model="querytype" />
+            <label>Support Request</label>
+          </div>
+          <template x-if="errors.querytype">
+            <p class="text-red text-[0.9rem]" x-text="errors.querytype"></p>
+          </template>
+        </div>
+      </div>
+      <div class="flex flex-col my-2">
+        <label class="text-grey900 my-2">Message <span class="text-green600">*</span></label>
+        <textarea :class="errors.message ? 'border-red outline-red' : 'border-green600 outline-green600'"
+          class="border p-3 h-32 outline-green600 border-green600 rounded-sm" x-model="message"></textarea>
+        <template x-if="errors.message">
+          <p class="text-red text-[0.9rem]" x-text="errors.message"></p>
+        </template>
+      </div>
+
+      <div class=" gap-6 my-5 items-center">
+        <div>
+          <input type="checkbox" class="accent-green600" x-model="check" />
+          <label>I consent to being contacted by the team *</label>
+        </div>
+        <template x-if="errors.check">
+          <p class="text-red text-[0.9rem]" x-text="errors.check"></p>
+        </template>
+      </div>
+      <button type="submit" class="text-center w-[100%] bg-green600 p-4 rounded-lg text-white">Submit</button>
+      <div class="bg-grey500 hidden absolute top-1 p-5 rounded-lg text-white">
+        <div class="flex gap-2">
+          <img src="./assets/images/icon-success-check.svg">
+          <p class="text-[1.3rem]">Message Sent!</p>
+        </div>
+        <p>Thanks for completing the form. We'd be in touch soon</p>
+      </div>
+  </div>
+  </form>
+  <script src="./script.js"></script>
+</body>
+
+</html>
