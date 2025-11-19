@@ -8,6 +8,7 @@ document.addEventListener('alpine:init', () => {
         check: false,
         errors: {},
         success: false,
+        done: false,
 
         validateForm(){
             this.errors = {}
@@ -32,6 +33,13 @@ document.addEventListener('alpine:init', () => {
             }
         },
 
+        showPopup(){
+            this.done = !this.done
+            setTimeout(() => {
+                this.done = !this.done
+            }, 1000)
+        },
+
 
         submitForm($event){
             this.validateForm()
@@ -40,6 +48,7 @@ document.addEventListener('alpine:init', () => {
                  console.log(this.firstname, this.lastname, this.email, this.querytype, this.message, this.check)
                  $event.target.reset();
                  this.success = true;
+                 this.showPopup();
             } 
         }
     }))

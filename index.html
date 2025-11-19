@@ -12,8 +12,8 @@
   <title>Frontend Mentor | Contact form</title>
 </head>
 
-<body class="font-karla bg-green200 py-10 h-[100vh] flex justify-center items-start relative">
-  <div class="bg-white p-5">
+<body class="font-karla bg-green200 py-10 h-[100vh] flex justify-center items-start ">
+  <div class="bg-white p-5 max-w-[475px]">
     <h1 class="text-[2rem] font-semibold text-grey900">Contact Us</h1>
     <form x-data="signupForm" @submit.prevent="submitForm">
       <div class="lg:flex lg:gap-5">
@@ -83,7 +83,7 @@
         </template>
       </div>
       <button type="submit" class="text-center w-[100%] bg-green600 p-4 rounded-lg text-white">Submit</button>
-      <div class="bg-grey500 hidden absolute top-1 p-5 rounded-lg text-white">
+      <div class="bg-grey500 fixed top-0 p-5 rounded-lg text-white" x-show="done" x-transition.duration.200ms x-cloak>
         <div class="flex gap-2">
           <img src="./assets/images/icon-success-check.svg">
           <p class="text-[1.3rem]">Message Sent!</p>

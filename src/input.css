@@ -12,5 +12,9 @@
   --font-karla: "Karla", sans-serif;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 /*  Message Sent!
   Thanks for completing the form. We'll be in touch soon! */

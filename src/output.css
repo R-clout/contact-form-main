@@ -11,7 +11,6 @@
     --color-white: hsl(0, 0%, 100%);
     --spacing: 0.25rem;
     --font-weight-semibold: 600;
-    --font-weight-bold: 700;
     --radius-sm: 0.25rem;
     --radius-lg: 0.5rem;
     --default-font-family: var(--font-sans);
@@ -173,23 +172,14 @@
   }
 }
 @layer utilities {
-  .absolute {
-    position: absolute;
-  }
-  .relative {
-    position: relative;
+  .fixed {
+    position: fixed;
   }
   .static {
     position: static;
   }
   .top-0 {
     top: calc(var(--spacing) * 0);
-  }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
-  .mx-auto {
-    margin-inline: auto;
   }
   .my-2 {
     margin-block: calc(var(--spacing) * 2);
@@ -206,9 +196,6 @@
   .flex {
     display: flex;
   }
-  .hidden {
-    display: none;
-  }
   .table {
     display: table;
   }
@@ -224,23 +211,8 @@
   .w-\[100\%\] {
     width: 100%;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
-  .-translate-x-\[50\%\] {
-    --tw-translate-x: calc(50% * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-x-\[50\%\] {
-    --tw-translate-x: 50%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .translate-x-\[50\] {
-    --tw-translate-x: 50;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .resize {
-    resize: both;
+  .max-w-\[475px\] {
+    max-width: 475px;
   }
   .flex-col {
     flex-direction: column;
@@ -262,9 +234,6 @@
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
-  }
-  .self-center {
-    align-self: center;
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -294,9 +263,6 @@
   .bg-grey500 {
     background-color: var(--color-grey500);
   }
-  .bg-transparent {
-    background-color: transparent;
-  }
   .bg-white {
     background-color: var(--color-white);
   }
@@ -312,9 +278,6 @@
   .p-5 {
     padding: calc(var(--spacing) * 5);
   }
-  .p-10 {
-    padding: calc(var(--spacing) * 10);
-  }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
   }
@@ -324,20 +287,11 @@
   .font-karla {
     font-family: var(--font-karla);
   }
-  .text-\[0\.7rem\] {
-    font-size: 0.7rem;
-  }
   .text-\[0\.9rem\] {
     font-size: 0.9rem;
   }
-  .text-\[1\.2rem\] {
-    font-size: 1.2rem;
-  }
   .text-\[1\.3rem\] {
     font-size: 1.3rem;
-  }
-  .text-\[1\.5rem\] {
-    font-size: 1.5rem;
   }
   .text-\[1rem\] {
     font-size: 1rem;
@@ -348,9 +302,6 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
-  }
-  .text-\[0\.rem\] {
-    color: 0.rem;
   }
   .text-green600 {
     color: var(--color-green600);
@@ -363,9 +314,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .underline {
-    text-decoration-line: underline;
   }
   .accent-green600 {
     accent-color: var(--color-green600);
@@ -411,20 +359,8 @@
     }
   }
 }
-@property --tw-translate-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-translate-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
+[x-cloak] {
+  display: none !important;
 }
 @property --tw-border-style {
   syntax: "*";
@@ -443,9 +379,6 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-translate-x: 0;
-      --tw-translate-y: 0;
-      --tw-translate-z: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
       --tw-outline-style: solid;
